@@ -80,6 +80,15 @@ p.note {
   font-size: 0.95rem;
 }
 
+.recaptcha-legal {
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.recaptcha-legal a {
+  color: #075985;
+}
+
 p.status {
   margin: 0.3rem 0 0;
   font-weight: 700;
@@ -91,4 +100,8 @@ p.status {
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
 }
