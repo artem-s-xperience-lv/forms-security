@@ -3,7 +3,7 @@
 This project demonstrates:
 - Honeypot field bot trap (`website` input)
 - Same-origin API-only policy (Origin + Sec-Fetch-Site checks)
-- Server-rendered signed CSRF token validation via `X-CSRF-Token`
+- Server-rendered signed CSRF token validation via request body (`csrfToken`)
 - Free silent captcha with Google reCAPTCHA v3 SCORE + server verification
 - Decorator-based protection chain in `lib/api-decorators.ts`
 
@@ -34,7 +34,7 @@ Open `http://localhost:3000`.
 
 1. Client requests `/` and receives a server-rendered form.
 2. The server renders the form with a signed CSRF token hidden input.
-3. Submit to the selected endpoint (`/api/contact`, `/api/support`, or `/api/sales`) with `X-CSRF-Token` header.
+3. Submit to the selected endpoint (`/api/contact`, `/api/support`, or `/api/sales`) with body `csrfToken`.
 4. API enforces same-origin request headers.
 5. API validates signed CSRF token.
 6. API validates payload + honeypot.

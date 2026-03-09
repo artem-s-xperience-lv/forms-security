@@ -17,7 +17,6 @@ echo [3/3] POST with origin+csrf but empty captcha
 curl.exe -sS -i -X POST "%BASE%/api/contact" ^
   -H "Origin: %BASE%" ^
   -H "Content-Type: application/json" ^
-  -H "X-CSRF-Token: %CSRF%" ^
   --data "{\"name\":\"Local Test\",\"email\":\"test@example.com\",\"message\":\"this is a local test message\",\"website\":\"\",\"csrfToken\":\"%CSRF%\",\"captchaToken\":\"\"}"
 
 echo.

@@ -26,16 +26,6 @@ export function withSameOrigin<TCtx extends CtxBase>(): Decorator<TCtx, TCtx> {
   };
 }
 
-export function withCsrf<TCtx extends CtxBase>(): Decorator<TCtx, TCtx> {
-  return (handler) => async (req, ctx) => {
-    const csrfHeader = req.headers.get("x-csrf-token") ?? "";
-    if (!csrfHeader || !verifySignedCsrfToken(csrfHeader)) {
-      return NextResponse.json({ error: "Invalid CSRF token" }, { status: 403 });
-    }
-    return handler(req, ctx);
-  };
-}
-
 export function withCsrfFromBody<
   TBody extends Record<string, unknown>,
   TCtx extends CtxBase & WithBody<TBody>
